@@ -36,7 +36,7 @@ def handle_default():
 
 @app.route("/Canvas")
 @requires_auth
-def handle_default():
+def handle_canvas():
     fileName = request.args.get('file','')
     CanvasCode.download_file(fileName)
     return ""
@@ -53,7 +53,8 @@ def handle_led():
     print(intensity)
 
     request_str = "http://"+LED_IP+":"+LED_Port+"/LED?status=" + str(status) + "&color=" + str(color) + "&intensity=" + str(intensity)
-    return requests.get(request_str)
+    requests.get(request_str)
+    return ""
 
 if __name__ == "__main__":
     parser = ap.ArgumentParser(description="Launch the services pi for assignment 3")
