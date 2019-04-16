@@ -18,7 +18,7 @@ def handle_led():
     LED_handler.set_status(status)
     LED_handler.set_color(color)
     LED_handler.set_intensity(int(intensity))
-    LED_handler.update
+    LED_handler.update()
     return "LED SET"
 
 if __name__ == "__main__":

@@ -31,8 +31,8 @@ class PI_LED():
             self.color = c
 
     def set_intensity(self, i):
-        if i >= 0 and i <= 100:
-            self.intensity = i
+        if i > 0 and i <= 100:
+            self.intensity = i-1
 
     def update(self):
         self.p_red.ChangeDutyCycle(0)
