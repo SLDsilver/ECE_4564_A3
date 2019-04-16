@@ -32,7 +32,7 @@ def requires_auth(f):
 @requires_auth
 def handle_default():
     print("No Arguments Given!")
-    return "No Arguments Given!"
+    return "This is the services server!"
 
 @app.route("/Canvas")
 @requires_auth

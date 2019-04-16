@@ -7,7 +7,7 @@ LED_handler = None
 @app.route("/")
 def handle_default():
     print("No Arguments Given!")
-    return "No Arguments Given!"
+    return "This is the LED server!"
 
 @app.route('/LED')
 def handle_led():
