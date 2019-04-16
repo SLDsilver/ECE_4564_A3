@@ -37,9 +37,9 @@ def handle_default():
 def handle_led():
     status = request.args.get('status')
     color = request.args.get('color')
-    intensity request.args.get('intensity')
+    intensity = request.args.get('intensity')
 
-    request_str = "http://"+LED_IP+LED_Port+"/LED?status=" + status "&color=" + color + "&intensity=" + intensity
+    request_str = "http://"+LED_IP+LED_Port+"/LED?status=" + status + "&color=" + color + "&intensity=" + intensity
     requests.get(request_str)
     return "Requested: " + request_str
 
