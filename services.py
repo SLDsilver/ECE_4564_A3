@@ -13,8 +13,6 @@ def get_password(username):
     return ''
 
 class PI_LED():
-
-
     def __init__(self):
         self.LED_RED = 17
         self.LED_GREEN = 27
@@ -64,11 +62,3 @@ class PI_LED():
         self.p_green.stop()
         self.p_blue.stop()
         GPIO.cleanup()
-
-p = PI_LED()
-p.set_status('on')
-p.set_color('white')
-p.set_intensity(50)
-p.update()
-time.sleep(10)
-p.cleanup()

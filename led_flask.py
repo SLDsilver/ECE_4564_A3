@@ -1,5 +1,5 @@
 from flask import Flask, request, Response
-import led
+import services
 
 app = Flask(__name__)
 LED_handler = None
@@ -18,9 +18,9 @@ def handle_led():
     LED_handler.set_status(status)
     LED_handler.set_color(color)
     LED_handler.set_intensity(int(intensity))
-    LED_handler.update()
+    LED_handler.update
     return "LED SET"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=80, debug=True)
-    LED_handler = led.LED()
+    LED_handler = services.PI_LED()
+    app.run(host='0.0.0.0', port=8081, debug=True)
