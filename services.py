@@ -1,6 +1,5 @@
 from pymongo import MongoClient
-import RPi.GPIO as GPIO
-import time
+
 
 def get_password(username):
     client = MongoClient('127.0.0.1', 27017)

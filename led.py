@@ -1,3 +1,6 @@
+import RPi.GPIO as GPIO
+import time
+
 class PI_LED():
     def __init__(self):
         self.LED_RED = 17
