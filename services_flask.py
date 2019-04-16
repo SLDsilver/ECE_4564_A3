@@ -3,6 +3,7 @@ from functools import wraps
 import argparse as ap
 import requests
 import services
+import CanvasCode
 
 app = Flask(__name__)
 LED_IP = ""
@@ -32,6 +33,13 @@ def requires_auth(f):
 def handle_default():
     print("No Arguments Given!")
     return "No Arguments Given!"
+
+@app.route("/Canvas")
+@requires_auth
+def handle_default():
+    fileName = request.args.get('file','')
+    CanvasCode.download_file(fileName)
+    return ""
 
 @app.route('/LED')
 @requires_auth

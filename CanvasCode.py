@@ -20,9 +20,7 @@ def upload_file():
 
 
 
-def download_file():
-
-    fileName = "download.txt"
+def download_file(fileName = "download.txt"):
     id_num = 0
 
     #Data For Things In Folder
@@ -39,9 +37,6 @@ def download_file():
     file = requests.get(public, allow_redirects=True)
 
     #Writes File
-    open('download.txt', 'wb').write(file.content)
+    open(fileName, 'wb').write(file.content)
 
     print("Done Downloading")
-
-upload_file()
-download_file()
