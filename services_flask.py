@@ -1,11 +1,12 @@
 from flask import Flask, request, Response
+from functools import wraps
 import argparse as ap
 import requests
 import services
 
 app = Flask(__name__)
-LED_IP = None
-LED_Port = 8081
+LED_IP = ""
+LED_Port = "8081"
 
 def check_auth(username, password):
     #Here given userbame returns password
@@ -35,11 +36,16 @@ def handle_default():
 @app.route('/LED')
 @requires_auth
 def handle_led():
-    status = request.args.get('status')
-    color = request.args.get('color')
-    intensity = request.args.get('intensity')
+    status = request.args.get('status','')
+    color = request.args.get('color','')
+    intensity = request.args.get('intensity','')
 
-    request_str = "http://"+LED_IP+LED_Port+"/LED?status=" + status + "&color=" + color + "&intensity=" + intensity
+    print(status)
+    print(color)
+    print(intensity)
+
+    request_str = "http://"+LED_IP+":"+LED_Port+"/LED?status=" + str(status) + "&color=" + str(color) + "&intensity=" + str(intensity)
+    print(request_str)
     requests.get(request_str)
     return "Requested: " + request_str
 
@@ -47,8 +53,8 @@ if __name__ == "__main__":
     parser = ap.ArgumentParser(description="Launch the services pi for assignment 3")
     parser.add_argument('-led',action='store',dest='IP',type=str,nargs='+',help="IP led pi is hosting",default='localhost',required=False)
     args = parser.parse_args()
-
-    app.run(host='0.0.0.0', port=80, debug=True)
-
+    
     LED_IP = "".join(args.IP)
-    LED_Port = 8081
+    LED_Port = "8081"
+
+    app.run(host='0.0.0.0', port=8081, debug=False)
