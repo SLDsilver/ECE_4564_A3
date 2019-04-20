@@ -14,6 +14,8 @@ def handle_led():
     status = request.args.get('status')
     color = request.args.get('color')
     intensity = request.args.get('intensity')
+    
+    print("Changed LED Configuration:\n\tStatus: ", status, "\n\tColor: ", color, "\n\tIntensity: ", intensity)
 
     LED_handler.set_status(status)
     LED_handler.set_color(color)
