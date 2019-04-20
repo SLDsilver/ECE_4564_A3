@@ -23,4 +23,4 @@ def handle_led():
 
 if __name__ == "__main__":
     LED_handler = led.PI_LED()
-    app.run(host='0.0.0.0', port=8081, debug=True)
+    app.run(host='0.0.0.0', port=8081, debug=False)

@@ -11,6 +11,7 @@ class PI_LED():
         self.intensity = 0
 
         GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
         GPIO.setup(self.LED_RED, GPIO.OUT)
         GPIO.setup(self.LED_GREEN, GPIO.OUT)
         GPIO.setup(self.LED_BLUE, GPIO.OUT)
