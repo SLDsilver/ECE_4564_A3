@@ -11,7 +11,7 @@ class MyListener(object):
 
     def add_service(self, zeroconf, type, name):
         info = zeroconf.get_service_info(type, name)
-        if info.name == "LED Server._http._tcp.local.":
+        if info and "LED Server._http._tcp.local." in info.name:
             print ("New Server Found:\n\tName: ",info.name,
             "\n\tAddress: ",socket.inet_ntoa(info.address),
             "\n\tPort: ",info.port,
