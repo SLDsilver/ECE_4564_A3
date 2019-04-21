@@ -65,7 +65,11 @@ if __name__ == "__main__":
 
     zeroconf.close()
 
-    LED_IP = listener.server_ip
+    parser = ap.ArgumentParser(description="Launch the services pi for assignment 3")
+    parser.add_argument('-led',action='store',dest='IP',type=str,nargs='+',help="IP led pi is hosting",default=listener.server_ip,required=False)
+    args = parser.parse_args()
+
+    LED_IP = "".join(args.IP)
     LED_Port = listener.server_port
 
 
